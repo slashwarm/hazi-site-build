@@ -6,11 +6,23 @@
     "start": "next start"
   },
   "dependencies": {
+    "msw": "^2.1.7",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "styled-components": "^6.1.8"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.16",
+    "@types/react": "18.2.55",
+    "typescript": "5.3.3"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

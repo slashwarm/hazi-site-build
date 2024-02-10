@@ -1,1 +1,2 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+Reszponzív hero és hírlevél komponens tervezés form elemekkel.
+Házi feladat.
