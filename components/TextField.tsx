@@ -10,57 +10,59 @@ type InputProps = {
   readonly style?: React.CSSProperties;
 };
 
-const StyledInput = styled.input<InputProps>((props) => ({
-  width: '100%',
-  border: `1px solid ${props.theme.global.borders.borderDefault}`,
-  background: props.theme.input.backgroundDefault,
-  borderRadius: '8px',
-  margin: '0',
-  padding: 0,
-  outline: 'none',
-  transition: 'box-shadow 0.3s ease-in-out',
+const StyledInput = styled.input<InputProps>`
+  width: 100%;
+  border: 1px solid ${({ theme }) => theme.global.borders.borderDefault}; // Access borderDefault from theme or fallback to '#ddd'
+  background: ${({ theme }) =>
+    theme.input
+      .backgroundDefault}; // Access backgroundDefault from theme or fallback to '#fff'
+  border-radius: 8px;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  transition: box-shadow 0.3s ease-in-out;
 
   // small screens
-  height: '40px',
-  fontSize: '14px',
-  paddingLeft: '8px',
-  paddingRight: '8px',
+  height: 40px;
+  font-size: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
 
-  '@media (min-width: 768px)': {
+  @media (min-width: 768px) {
     // large screens
-    height: '64px',
-    fontSize: '16px',
-    paddingLeft: '16px',
-    paddingRight: '16px',
-  },
+    height: 64px;
+    font-size: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 
-  '&::placeholder': {
-    color: props.theme.global.text.textSecondary,
-  },
+  &::placeholder {
+    color: ${({ theme }) => theme.global.text.textSecondary};
+  }
 
-  '&:hover': {
-    background: props.theme.input.backgroundHover,
-    borderColor: props.theme.global.borders.borderHover,
-  },
+  &:hover {
+    background: ${({ theme }) => theme.input.backgroundHover};
+    border-color: ${({ theme }) => theme.global.borders.borderHover};
+  }
 
-  '&:active': {
-    background: props.theme.input.backgroundTyped,
-    borderColor: props.theme.global.borders.borderTyped,
-  },
+  &:active {
+    background: ${({ theme }) => theme.input.backgroundTyped};
+    border-color: ${({ theme }) => theme.global.borders.borderTyped};
+  }
 
-  '&:focus': {
-    background: props.theme.input.backgroundFocused,
-    borderColor: props.theme.global.borders.borderFocused,
-    boxShadow: `0px 0px 0px 3px ${props.theme.button.shadow}`,
-  },
+  &:focus {
+    background: ${({ theme }) => theme.input.backgroundFocused};
+    border-color: ${({ theme }) => theme.global.borders.borderFocused};
+    box-shadow: 0px 0px 0px 3px ${({ theme }) => theme.button.shadow};
+  }
 
-  '&:disabled': {
-    cursor: 'not-allowed',
-    color: props.theme.global.text.textDisabled,
-    background: props.theme.input.backgroundDisabled,
-    borderColor: props.theme.global.borders.borderDisabled,
-  },
-}));
+  &:disabled {
+    cursor: not-allowed;
+    color: ${({ theme }) => theme.global.text.textDisabled};
+    background: ${({ theme }) => theme.input.backgroundDisabled};
+    border-color: ${({ theme }) => theme.global.borders.borderDisabled};
+  }
+`;
 
 const TextField: React.FC<InputProps> = ({ children, ...props }) => (
   <StyledInput {...props}>{children}</StyledInput>
