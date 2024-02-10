@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import { ThemeProvider, styled } from 'styled-components';
-import { theme } from 'components/Theme';
+import { theme } from 'constants/Theme';
 import Button from 'components/Button';
 import TextField from 'components/TextField';
 import { AddIcon, RightArrowIcon } from 'components/Icons';
-import Newsletter from './Newsletter';
-import Hero from './Hero';
+import Newsletter from 'components/Newsletter';
+import Hero from 'components/Hero';
 
 const Content = styled.main`
   background: url('/background.png') no-repeat center center fixed;
